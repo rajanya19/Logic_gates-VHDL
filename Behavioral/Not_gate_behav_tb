@@ -1,0 +1,37 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Not_gate_behav_tb is
+end Not_gate_behav_tb;
+
+architecture test of Not_gate_behav_tb is
+
+component Not_gate_behav
+port(
+    A : in std_logic;
+    Y : out std_logic
+);
+end component;
+
+signal A, Y : std_logic;
+
+begin
+
+UUT : Not_gate_behav
+port map(
+    A => A,
+    Y => Y
+);
+
+process
+begin
+    A <= '0';
+    wait for 10 ns;
+
+    A <= '1';
+    wait for 10 ns;
+
+    wait;
+end process;
+
+end test;
